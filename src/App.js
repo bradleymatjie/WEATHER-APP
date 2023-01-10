@@ -35,7 +35,7 @@ function App() {
           />
           <button onClick={searchPressed}>Search</button>
         </div>
-        {search && <Data weatherInfo={weatherInfo}/>}
+        <Data weatherInfo={weatherInfo} />
       </section>
     </div>
   );
