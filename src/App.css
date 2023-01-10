@@ -1,0 +1,67 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+}
+
+.search input[type="text"] {
+    height: 20px;
+}
+
+.search button {
+    background-color: green;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    height: 25px;
+}
+
+.title {
+    position: relative;
+    top: 60px;
+    font-size: 28px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+}
+
+.top_container {
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_container h2 {
+    font-size: 50px;
+}
+
+.min_max p {
+    margin: 0;
+}
+
+.middle p {
+    margin: 0;
+    width: 280px;
+    height: 25px;
+}
+
+.bottom {
+    margin-top: 20px;
+    border: 1px solid #fff;
+    width: 280px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bottom span {
+    display: block;
+}
