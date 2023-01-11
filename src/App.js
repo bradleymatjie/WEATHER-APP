@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App" style={{backgroundImage: `url(${backgroundImage})`}}>
       <section className='container'>
+        <h1>WEATHER APP</h1>
         <div className='search'>
           <input
             type='text'
