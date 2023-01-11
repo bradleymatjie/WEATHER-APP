@@ -1,6 +1,6 @@
 # WEATHER APP
 
-(DEMO LINK)[bradleymatjie.github.io/WEATHER-APP]
+[DEMO LINK](https://bradleymatjie.github.io/WEATHER-APP/)
 
 # TECHNOLOGIES USED
 - HTML5
