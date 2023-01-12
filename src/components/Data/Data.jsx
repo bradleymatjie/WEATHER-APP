@@ -1,3 +1,5 @@
+import './Data.css'
+
 export const Data = ({ weatherInfo }) => {
     return (
         <div>

@@ -1,40 +1,45 @@
 import './App.css';
-import { useState } from 'react';
-import { Data } from './Data';
+import { useState, useCallback } from 'react';
+import { Data } from './components/Data/Data';
+import { searchPressed } from './apiData';
 
-import backgroundImage from './media/bj.png'; 
+import backgroundImage from './media/bj.png';
 
 function App() {
-  const [search, setSearch] = useState('');
-  const [weatherInfo, setWeatherInfo] = useState({});
-  
-  const api = {
-    key: "8e01601781c2308a4b673cdc9626c7fd",
-    base: "https://api.openweathermap.org/data/2.5/",
-  }
-  
-  const searchPressed = () => {
-    fetch(`${api.base}weather?q=${search}&units=metric&appid=${api.key}`)
-      .then(res => res.json())
-      .then((result) => {
-          setWeatherInfo(result);
-          setSearch('');
-        }
-      )
-  };
-  
+const [search, setSearch] = useState('');
+const [weatherInfo, setWeatherInfo] = useState({});  
+
+  const searchFunction = useCallback(() => {
+    searchPressed(search).then(response => {
+      if ('Error' in response) {
+        alert('Error!! check spelling and search again');
+      } else {
+        setWeatherInfo(response);
+      }
+    
+      }).finally(() => {
+        setSearch('');
+      });
+    },
+  [search]);
+
   return (
     <div className="App" style={{backgroundImage: `url(${backgroundImage})`}}>
       <section className='container'>
         <h1>WEATHER APP</h1>
         <div className='search'>
-          <input
-            type='text'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder='Enter city name'
-          />
-          <button onClick={searchPressed}>Search</button>
+          <form onSubmit={(event) => {
+            event.preventDefault();
+            searchFunction();
+          }}>
+            <input
+              type='text'
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder='Enter city name'
+            />
+            <button onClick={searchPressed}>Search</button>
+          </form>
         </div>
         <Data weatherInfo={weatherInfo} />
       </section>
